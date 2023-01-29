@@ -1,0 +1,29 @@
+{% extends('base.html.twig') %}
+
+{% block title %}
+    <title>Actualizar Alquiler</title>
+{% endblock %}
+
+{% block javascripts%}
+    <script src="{{ asset('assets/js/alquileresCreate.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <h1>Actualizar Alquiler</h1>
+    {{ form_start(form_alquileres) }}
+        <div class="col-md-6 mb-3">
+            {{ form_row(form_alquileres.diasalquiler) }}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form_row(form_alquileres.peliculas) }}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form_row(form_alquileres.user) }}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form_row(form_alquileres.valortotal) }}
+        </div>
+        {{ form_widget(form_alquileres.submit) }}
+        <a href="{{ path('app_alquileres') }}">Volver a listado</a>
+    {{ form_end(form_alquileres) }}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends('base.html.twig') %}
+
+{% block title %}
+    <title>Registro Peliculas</title>
+{% endblock %}
+
+{% block body %}
+    <h1>Registro de Peliculas</h1>
+    {{ form_start(form_peliculas) }}
+        <div class="col-md-6">
+            {{ form_row(form_peliculas.nombre) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form_peliculas.sinopsis) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form_peliculas.precio) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form_peliculas.genero) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form_peliculas.fechaestreno) }}
+        </div>
+        {{ form_widget(form_peliculas.submit) }}
+        <a href="{{ path('app_peliculas') }}">Volver a listado</a>
+    {{ form_end(form_peliculas) }}
+{% endblock %}

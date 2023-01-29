@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Peliculas{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    
+    <div class="row">
+        <div class="col"><h2>Peliculas</h2></div>
+        <div class="col">
+            <a href="{{path('app_peliculas_create')}}" class="btn btn-primary">Nueva Pelicula</a>
+        </div>
+    </div>
+    
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Sinopsis</th>
+                <th>Precio</th>
+                <th>Tipo</th>
+                <th>Genero</th>
+                <th>Fecha estreno</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {% for pelicula in listPeliculas %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ pelicula.nombre }}</td>
+                        <td>{{ pelicula.sinopsis }}</td>
+                        <td>{{ pelicula.precio }}</td>
+                        <td>{{ pelicula.tipo }}</td>
+                        <td>{{ pelicula.genero }}</td>
+                        <td>{{ pelicula.fechaEstreno |date('d-m-Y')}}</td>
+                        <td>
+                            <a href="{{path('app_peliculas_update', {'id': pelicula.id})}}" class="btn btn-primary">Modificar</a>
+                            <a href="{{path('app_peliculas_delete', {'id': pelicula.id})}}" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
